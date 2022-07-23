@@ -1,0 +1,32 @@
+<style>
+    #code {
+        background-color: aqua;
+        text-decoration: underline;
+        text-indent: 5px;
+    }
+</style>
+
+<form id="code_input" action="/users/entry" method="post">
+    <input type="hidden" name="email" value="{{data.email}}" required>
+    <input id="code" type="text" name="code" required>
+    <input type="submit" value="Log In">
+</form>
+
+<h3>{{data.codeRetries}} retries left</h3>
+
+<h3>Your 4-digit acces code was sent to {{data.email}}</h3>
+
+<script>
+
+    const code = document.getElementById('code');
+    const form = document.getElementById('code_input');
+
+    code.addEventListener('input', function(e) {
+        if (e.target.value.length === 4) {
+            setTimeout(function() {
+                form.submit();
+            }, 750);
+        }
+    });
+
+</script>

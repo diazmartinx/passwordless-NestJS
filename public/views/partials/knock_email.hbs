@@ -1,0 +1,11 @@
+{{#if user}}
+  <h1> Hello {{user}}</h1>
+  <form action="/users/logout" method="post">
+    <input type="submit" value="Log Out">
+  </form>
+{{/if}}
+
+<form action="/users/knock" method="post">
+  <input type="text" name="email" required>
+  <input type="submit" value="Send Email">
+</form>
